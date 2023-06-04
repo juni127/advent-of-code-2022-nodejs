@@ -18,7 +18,7 @@ const solution = input => {
                 stacks[(x-1)/4] = [line.charAt(x), ...(stacks[(x-1)/4] || [])];
     }
 
-    for(let command of lines.splice(procedureStart)){
+    for(let command of lines.slice(procedureStart)){
         const [move, from, to] = command.replace('move ', '').replace('from ', ',').replace('to ', ',').split(',');
         for(let x = move; x > 0; x--)
             stacks[to-1].push(stacks[from-1].pop());
